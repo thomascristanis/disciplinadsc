@@ -4,6 +4,6 @@ Esse repositório é referente a disciplina de Desenvolvimento de Sistemas Corpo
 
 
 ## Importando arquivo do Postman
-![enter image description here](http://portal.ifrn.edu.br/++resource++ifrn.tema2011.images/logo.png)
+![enter image description here](https://github.com/thomascristanis/disciplinadsc/blob/master/imagens/importPostman.gif?raw=true)
 
 -----------------------------------------------------------------------------------------------------------------------------
