@@ -11,15 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/listar/28",
+					"raw": "http://localhost:8080/listar",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"listar",
-						"28"
+						"listar"
 					]
 				}
 			},
