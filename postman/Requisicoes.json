@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f9759df6-10a5-46df-9394-fa35a1673f35",
+		"_postman_id": "82b05e6d-666a-4759-9dd0-3441ac49879e",
 		"name": "Requisições Exemplo Aluno",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/listar/28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"listar",
+						"28"
+					]
 				}
 			},
 			"response": []
@@ -121,5 +130,6 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
