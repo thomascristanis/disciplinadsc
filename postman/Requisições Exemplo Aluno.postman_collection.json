@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "f9759df6-10a5-46df-9394-fa35a1673f35",
+		"name": "Requisições Exemplo Aluno",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Todos (Get)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar por Id (Post)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/listar/28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"listar",
+						"28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar (Post)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n\t\"matricula\":\"123456789\",\n\t\"nome\":\"Teste\",\n\t\"faltas\":20\n\t}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar (Delete)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/deletar/29",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deletar",
+						"29"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar (Put)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"matricula\":\"12345678910\",\n\t\"nome\":\"Teste\",\n\t\"faltas\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/editar/30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"editar",
+						"30"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

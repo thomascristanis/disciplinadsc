@@ -1,0 +1,4 @@
+br/edu/ifrn/suap/SuapApplication.class
+br/edu/ifrn/suap/model/Aluno.class
+br/edu/ifrn/suap/controller/AlunoController.class
+br/edu/ifrn/suap/repository/AlunoRepository.class
