@@ -25,28 +25,28 @@ public class AlunoController {
     @Autowired
     private AlunoRepository repoAlunos;
 
-    @RequestMapping(value = "/listar", method =  RequestMethod.GET)
+    @RequestMapping(value = "/aluno/listar", method =  RequestMethod.GET)
     public List<Aluno> listar() {
         return repoAlunos.findAll();
     }
 
-    @RequestMapping(value = "/listar/{id}", method =  RequestMethod.GET)
+    @RequestMapping(value = "/aluno/listar/{id}", method =  RequestMethod.GET)
     public Aluno listar(@PathVariable Long id) {
         return repoAlunos.findById(id).get();
     }
 
-    @RequestMapping(value = "/salvar", method =  RequestMethod.POST)
+    @RequestMapping(value = "/aluno/salvar", method =  RequestMethod.POST)
     @ResponseBody
     public Aluno salvar(@RequestBody Aluno aluno) {
         return repoAlunos.save(aluno);
     }
 
-    @RequestMapping(value = "/deletar/{id}", method =  RequestMethod.DELETE)
+    @RequestMapping(value = "/aluno/deletar/{id}", method =  RequestMethod.DELETE)
     public void deletar(@PathVariable Long id) {
         repoAlunos.deleteById(id);
     }
 
-    @RequestMapping(value = "/editar/{id}", method =  RequestMethod.PUT)
+    @RequestMapping(value = "/aluno/editar/{id}", method =  RequestMethod.PUT)
     public ResponseEntity<Aluno> editar(@PathVariable Long id, @RequestBody Aluno novoAluno) {
         Optional<Aluno> optAluno = repoAlunos.findById(id); // Procura o objeto a ser editado pelo seu id
         if(optAluno.isPresent()){ // Verifica se existe
