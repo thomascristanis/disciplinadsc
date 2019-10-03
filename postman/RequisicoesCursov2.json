@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "2739792a-410b-446e-bfe3-293e76f316db",
+		"name": "Requisições Exemplo Curso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Todos (Get)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/curso/listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"curso",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar por Id (Post)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/curso/listar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"curso",
+						"listar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar (Post)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n\t\"nome\":\"Licenciatura em Computação\"\n\t}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/curso/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"curso",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar (Delete)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/curso/deletar/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"curso",
+						"deletar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar (Put)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Bacharelado em Informática\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/curso/editar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"curso",
+						"editar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "08073418-03c4-4182-a840-3f090f6f6bfb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "755bb24f-327d-4c0e-9c7c-a4356ae6a94f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
