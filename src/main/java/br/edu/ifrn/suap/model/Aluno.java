@@ -1,10 +1,13 @@
 package br.edu.ifrn.suap.model;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  * Aluno
@@ -19,6 +22,10 @@ public class Aluno {
 	private String matricula;
 	private String nome;
 	private int faltas;
+
+	@ManyToOne
+	@JoinColumn(name = "curso", foreignKey = @ForeignKey(name = "fk_curso"))
+	private Curso curso;
 
 	public String getMatricula() {
 		return matricula;
@@ -50,5 +57,13 @@ public class Aluno {
 	
 	public void setFaltas(int faltas) {
 		this.faltas = faltas;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 }

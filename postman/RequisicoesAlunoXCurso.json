@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "049afa0b-d701-4c0b-9d0d-554c10cf224e",
+		"name": "Requisições Aluno X Curso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Salvar (Post)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"matricula\": \"123456789\",\n     \"nome\": \"Teste\",\n     \"faltas\": 1,\n\t\"curso\":\n\t{\n\t\t\"id\":1\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/aluno/salvar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aluno",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "08073418-03c4-4182-a840-3f090f6f6bfb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "755bb24f-327d-4c0e-9c7c-a4356ae6a94f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
