@@ -25,28 +25,28 @@ public class CursoController {
     @Autowired
     private CursoRepository repoCurso;
 
-    @RequestMapping(value = "/curso/listar", method =  RequestMethod.GET)
+    @RequestMapping(value = "/api/curso/listar", method =  RequestMethod.GET)
     public List<Curso> listar() {
         return repoCurso.findAll();
     }
 
-    @RequestMapping(value = "/curso/listar/{id}", method =  RequestMethod.GET)
+    @RequestMapping(value = "/api/curso/listar/{id}", method =  RequestMethod.GET)
     public Curso listar(@PathVariable Long id) {
         return repoCurso.findById(id).get();
     }
 
-    @RequestMapping(value = "/curso/salvar", method =  RequestMethod.POST)
+    @RequestMapping(value = "/api/curso/salvar", method =  RequestMethod.POST)
     @ResponseBody
     public Curso salvar(@RequestBody Curso curso) {
         return repoCurso.save(curso);
     }
 
-    @RequestMapping(value = "/curso/deletar/{id}", method =  RequestMethod.DELETE)
+    @RequestMapping(value = "/api/curso/deletar/{id}", method =  RequestMethod.DELETE)
     public void deletar(@PathVariable Long id) {
         repoCurso.deleteById(id);
     }
 
-    @RequestMapping(value = "/curso/editar/{id}", method =  RequestMethod.PUT)
+    @RequestMapping(value = "/api/curso/editar/{id}", method =  RequestMethod.PUT)
     public ResponseEntity<Curso> editar(@PathVariable Long id, @RequestBody Curso novoCurso) {
         Optional<Curso> optCurso = repoCurso.findById(id); // Procura o objeto a ser editado pelo seu id
         if(optCurso.isPresent()){ // Verifica se existe

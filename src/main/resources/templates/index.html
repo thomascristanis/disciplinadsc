@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"> 
+
+<script src="/webjars/datatables/1.10.20/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="/webjars/datatables/1.10.20/css/jquery.dataTables.min.css"> 
+
+<script src="/webjars/datatables/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<script th:src="@{/js/main.js}"></script>
+</head>
+
+<body>
+Content of the document......
+<div class="container"><br/>
+    <div class="alert alert-success">         
+        <strong>Success!</strong> It is working as we expected.
+    </div>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+</body>
+
+</html>

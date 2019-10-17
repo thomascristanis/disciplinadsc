@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.ifrn.suap.model.Aluno;
 import br.edu.ifrn.suap.repository.AlunoRepository;
@@ -24,29 +25,37 @@ public class AlunoController {
 
     @Autowired
     private AlunoRepository repoAlunos;
+    
+    @RequestMapping("/aluno")
+    public ModelAndView index () {
 
-    @RequestMapping(value = "/aluno/listar", method =  RequestMethod.GET)
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/aluno/index");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/api/aluno/listar", method =  RequestMethod.GET)
     public List<Aluno> listar() {
         return repoAlunos.findAll();
     }
 
-    @RequestMapping(value = "/aluno/listar/{id}", method =  RequestMethod.GET)
+    @RequestMapping(value = "/api/aluno/listar/{id}", method =  RequestMethod.GET)
     public Aluno listar(@PathVariable Long id) {
         return repoAlunos.findById(id).get();
     }
 
-    @RequestMapping(value = "/aluno/salvar", method =  RequestMethod.POST)
+    @RequestMapping(value = "/api/aluno/salvar", method =  RequestMethod.POST)
     @ResponseBody
     public Aluno salvar(@RequestBody Aluno aluno) {
         return repoAlunos.save(aluno);
     }
 
-    @RequestMapping(value = "/aluno/deletar/{id}", method =  RequestMethod.DELETE)
+    @RequestMapping(value = "/api/aluno/deletar/{id}", method =  RequestMethod.DELETE)
     public void deletar(@PathVariable Long id) {
         repoAlunos.deleteById(id);
     }
 
-    @RequestMapping(value = "/aluno/editar/{id}", method =  RequestMethod.PUT)
+    @RequestMapping(value = "/api/aluno/editar/{id}", method =  RequestMethod.PUT)
     public ResponseEntity<Aluno> editar(@PathVariable Long id, @RequestBody Aluno novoAluno) {
         Optional<Aluno> optAluno = repoAlunos.findById(id); // Procura o objeto a ser editado pelo seu id
         if(optAluno.isPresent()){ // Verifica se existe
