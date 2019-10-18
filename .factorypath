@@ -73,4 +73,5 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/webjars/jquery/1.11.1/jquery-1.11.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/webjars/bootstrap/3.3.7/bootstrap-3.3.7.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/webjars/datatables/1.10.20/datatables-1.10.20.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/webjars/jquery-easing/1.4.1/jquery-easing-1.4.1.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>
