@@ -19,7 +19,7 @@
   <link th:href="@{/css/template/sb-admin-2.min.css}" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="/webjars/datatables/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -250,14 +250,13 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Alunos</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Listagem de Alunos</h6>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNovo">Adicionar</button>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -265,9 +264,10 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Nome</th>
                       <th>Matricula</th>
+                      <th>Nome</th>
                       <th>Faltas</th>
+                      <th>Editar / Deletar</th>
                     </tr>
                   </thead>
                 </table>
@@ -277,7 +277,6 @@
 
         </div>
         <!-- /.container-fluid -->
-
       </div>
       <!-- End of Main Content -->
 
@@ -303,21 +302,122 @@
   </a>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-  <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="/webjars/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <!-- Custom scripts for all pages-->
   <script th:src="@{/js/sb-admin-2.min.js}"></script>
 
   <!-- Page level plugins -->
-  <script src="/webjars/datatables/1.10.20/js/jquery.dataTables.min.js"></script>
-  <script src="/webjars/datatables/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
   <!-- JS para chamada API -->
   <script th:src="@{/js/main.js}"></script>
+  
+  <!-- Modal Novo -->
+  <div class="modal fade" id="modalNovo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Novo Aluno</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Matricula</label>
+                    <input type="text" class="form-control" id="inputMatricula" placeholder="2019123456789">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput2">Nome</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+                  </div>
+                  <div class="form-group">
+                      <label for="formGroupExampleInput2">Número de Faltas</label>
+                      <input type="text" class="form-control" id="inputFaltas" placeholder="Número de Faltas">
+                  </div>
+                  <div class="form-group">
+                      <label for="inputCurso">Curso</label>
+                      <select id="inputCurso" class="form-control">
+                        <option selected>Escolha...</option>
+                        <!-- <option>...</option> -->
+                      </select>
+                    </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              <button id="btnSalvar" type="button" class="btn btn-success">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+<!-- Modal Editar -->
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Aluno</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Matricula</label>
+            <input type="text" class="form-control" id="inputMatricula" placeholder="2019123456789">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Nome</label>
+            <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+          </div>
+          <div class="form-group">
+              <label for="formGroupExampleInput2">Número de Faltas</label>
+              <input type="text" class="form-control" id="inputFaltas" placeholder="Número de Faltas">
+          </div>
+          <div class="form-group">
+              <label for="inputCurso">Curso</label>
+              <select id="inputCurso" class="form-control">
+                <option selected>Escolha...</option>
+                <!-- <option>...</option> -->
+              </select>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button id="btnEditar" type="button" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Deletar -->
+<div class="modal fade" id="modalDeletar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deletar Aluno</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="disabled" id="fieldID" name="fieldID">
+          Vocês deseja deletar este aluno?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger">Não</button>
+          <button id="btnDeletar" data-dismiss="modal" data-href="/api/aluno/deletar/2" type="button" class="btn btn-success">Sim</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
