@@ -267,6 +267,7 @@
                       <th>Matricula</th>
                       <th>Nome</th>
                       <th>Faltas</th>
+                      <th>Curso</th>
                       <th>Editar / Deletar</th>
                     </tr>
                   </thead>
@@ -314,7 +315,7 @@
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
   <!-- JS para chamada API -->
-  <script th:src="@{/js/main.js}"></script>
+  <script th:src="@{/js/aluno.js}"></script>
   
   <!-- Modal Novo -->
   <div class="modal fade" id="modalNovo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -330,21 +331,20 @@
               <form>
                   <div class="form-group">
                     <label for="formGroupExampleInput">Matricula</label>
-                    <input type="text" class="form-control" id="inputMatricula" placeholder="2019123456789">
+                    <input type="text" class="form-control" id="inputNovoMatricula" placeholder="2019123456789">
                   </div>
                   <div class="form-group">
                     <label for="formGroupExampleInput2">Nome</label>
-                    <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+                    <input type="text" class="form-control" id="inputNovoNome" placeholder="Nome">
                   </div>
                   <div class="form-group">
                       <label for="formGroupExampleInput2">Número de Faltas</label>
-                      <input type="text" class="form-control" id="inputFaltas" placeholder="Número de Faltas">
+                      <input type="text" class="form-control" id="inputNovoFaltas" placeholder="Número de Faltas">
                   </div>
                   <div class="form-group">
-                      <label for="inputCurso">Curso</label>
-                      <select id="inputCurso" class="form-control">
+                      <label for="inputNovoCurso">Curso</label>
+                      <select id="inputNovoCurso" class="form-control">
                         <option selected>Escolha...</option>
-                        <!-- <option>...</option> -->
                       </select>
                     </div>
                 </form>
@@ -370,29 +370,29 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
+              <input hidden="" type="text" class="disabled" id="fieldEditarID" name="fieldID">
             <label for="formGroupExampleInput">Matricula</label>
-            <input type="text" class="form-control" id="inputMatricula" placeholder="2019123456789">
+            <input type="text" class="form-control" id="inputEditarMatricula" placeholder="2019123456789">
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">Nome</label>
-            <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+            <input type="text" class="form-control" id="inputEditarNome" placeholder="Nome">
           </div>
           <div class="form-group">
               <label for="formGroupExampleInput2">Número de Faltas</label>
-              <input type="text" class="form-control" id="inputFaltas" placeholder="Número de Faltas">
+              <input type="text" class="form-control" id="inputEditarFaltas" placeholder="Número de Faltas">
           </div>
           <div class="form-group">
-              <label for="inputCurso">Curso</label>
-              <select id="inputCurso" class="form-control">
+              <label for="inputEditarCurso">Curso</label>
+              <select id="inputEditarCurso" class="form-control">
                 <option selected>Escolha...</option>
-                <!-- <option>...</option> -->
               </select>
             </div>
         </form>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <button id="btnEditar" type="button" class="btn btn-success">Salvar</button>
+          <button id="btnEditarSalvar" type="button" class="btn btn-success">Salvar</button>
       </div>
     </div>
   </div>
@@ -409,12 +409,12 @@
           </button>
         </div>
         <div class="modal-body">
-          <input type="text" class="disabled" id="fieldID" name="fieldID">
+          <input hidden="" type="text" class="disabled" id="fieldDeleteID" name="fieldID">
           Vocês deseja deletar este aluno?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger">Não</button>
-          <button id="btnDeletar" data-dismiss="modal" data-href="/api/aluno/deletar/2" type="button" class="btn btn-success">Sim</button>
+          <button id="btnDeletar" data-dismiss="modal" type="button" class="btn btn-success">Sim</button>
         </div>
       </div>
     </div>
